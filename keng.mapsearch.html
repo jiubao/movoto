@@ -2,18 +2,179 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>kengs of map search page</title>
+    <link type="text/css" rel="stylesheet" href="css/prism.css"  media="screen,projection"/>
+    <style type="text/css">
+      .cbox {
+        border: solid 1px #ccc; margin: 20px; padding: 0 20px 20px;
+        overflow: hidden; background-color: #f2f2f2;
+      }
+
+      pre {
+        border: dashed 1px #aaa;
+      }
+    </style>
   </head>
   <body>
     <h1>keng of map search page</h1>
-    <h2>di</h2>
-    <h2>cache</h2>
-    <h2>filter</h2>
-    <h2>resources</h2>
-    <h2>seoinfo</h2>
-    <h2>cardone</h2>
+
+    <h2>di (_injector.js)</h2>
+    <ol>
+      <li>$j.get('...')</li>
+      <li>define('name', ['d1', 'd2', function(d1, d2) {}])</li>
+    </ol>
+
+    <h2>cache (_mapcache.js)</h2>
+    <ol>
+      <li>houses {id: property}</li>
+      <li>map {url: ids}</li>
+    </ol>
+    <div class="cbox">
+      <h3>movotocache</h3>
+      <pre class="language-javascript" data-language="JavaScript"><code>$j.get('storage').get() === window.movotocache</code></pre>
+      <h3>current cache</h3>
+      <pre class="language-javascript" data-language="JavaScript"><code>$j.get('mapcache').getFragment()</code></pre>
+    </div>
+
+    <h2>storage (_storage.js)</h2>
+    <ol>
+      <li>localStorage</li>
+      <li>sessionStorage</li>
+      <li>{}</li>
+    </ol>
+
+    <h2>input (_input.js)</h2>
+    <ol>
+      <li>default</li>
+      <li>apply</li>
+      <li>rollback</li>
+      <li>reset</li>
+      <li>count</li>
+    </ol>
+    <div class="cbox">
+      <h3>class</h3>
+      baseinput
+      <br>
+      custominput, basecheckable
+      <br>
+      radio, checkbox, select
+    </div>
+    <h2>resources (resources.ejs)</h2>
+    <ol>
+      <li>lazyLoadImgs</li>
+      <li>LoadJS</li>
+      <li>ejs</li>
+      <li>prevent google's Roboto</li>
+    </ol>
+    <h2>seoinfo (seosharedhead.js)</h2>
+    <ol>
+      <li>title</li>
+      <li>description</li>
+      <li>h1</li>
+    </ol>
+    <h2>cardone (cardone.scss, tpl-card.scss)</h2>
+    <ol>
+      <li>viewed</li>
+      <li>slide</li>
+      <li>favorite</li>
+      <li>labels</li>
+      <li>open houses</li>
+      <li>info</li>
+      <li>mls logo</li>
+      <li>listing office</li>
+      <li>image</li>
+      <li>mask</li>
+      <li>pagination</li>
+      <li>schemas</li>
+    </ol>
     <h2>modules</h2>
-    <h2>file merge</h2>
+    <ol>
+      <li>render</li>
+    </ol>
     <h2>two versions</h2>
+    <ol>
+      <li>ejs</li>
+      <li>js</li>
+      <li>scss</li>
+    </ol>
+
+    <h2>file structure</h2>
+    <ol>
+      <li>_map.prefix</li>
+      <li>_map.config</li>
+      <li>shared.js (pagination.js, seosharedhead.js, usstatemap.json)</li>
+      <li>_map.js</li>
+      <li>_input.js</li>
+      <li>_injector.js</li>
+      <li>_searchuriprofile.js</li>
+      <li>modules/*.js</li>
+      <li>_map.suffix</li>
+    </ol>
+
+
+
+<!--
+
+<div id="chartCodes" style="display:none;">
+
+<textarea id="inputCode">
+st=>start: Start
+e=>end: End
+base=>operation: baseinput
+checkable=>operation: basecheckable
+custom=>operation: custominput
+radio=>operation: radio
+checkbox=>operation: checkbox
+select=>operation: select
+
+st->radio->checkable->base
+st->custom->base
+</textarea>
+
+<textarea id="inputCode2">
+st=>start: Start
+e=>end: End
+req=>operation: loadModules(module.requiers)
+concat1=>operation: cancat require modules' run blocks
+
+
+st->req->concat1->e
+
+</textarea>
+
+<textarea id="inputCode1">
+st=>start: Start
+e=>end: End
+loopM=>condition: loop modules
+(forEach)
+req=>operation: loadModules(module.requiers)
+load require modules and return run blocks
+concat1=>operation: cancat require modules' run blocks
+concat2=>operation: concat run blocks
+invoke=>operation: invoke queue
+config=>operation: config blocks
+
+retrun=>operation: return run blocks
+invokerun=>operation: invoke run blocks
+
+st->loopM(yes)->req->concat1->concat2->invoke->config->retrun
+loopM(no)->retrun->e
+
+</textarea>
+
+</div>
+
+    <script src="js/raphael-min.js"></script>
+    <script src="js/flowchart-latest.js"></script>
+    <script type="text/javascript">
+      function genChart(id) {
+        var c1 = document.getElementById(id + 'Code');
+        var chart = flowchart.parse(c1.value);
+        chart.drawSVG(id);
+      }
+
+      genChart('input');
+    </script>
+-->
   </body>
 </html>
